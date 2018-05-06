@@ -1,6 +1,23 @@
+// не разобраласьпочему массив ToDoItems пустой выводтся :(
+
+var ToDoItems = [];
+
+
+var initToDoItems = function() {
+		$.getJSON("items.json", function (todo) {
+             console.log(todo);
+            ToDoItems = todo.todo; 
+            }) ; 
+};
+     initToDoItems();
+
+console.log(ToDoItems);
+
+
 // first
 
 function addToDoItem(toDoObj){
+    
     if (toDoObj.text && toDoObj.completed && toDoObj.id){
        var flag = 0; 
         ToDoItems.forEach(function(Item){
@@ -17,13 +34,13 @@ return ToDoItems
 }
 
 // проверка работы
-/*var obj = {
+/* var obj = {
     text: 'write',
     completed: true,
     id: 3
 };
-console.log(addToDoItem(obj))*/ 
-
+console.log(addToDoItem(obj))
+*/
 
 // second
 // временный асампшен для функции выборки: если введено не completed и не not_completed, то введено all, других вариантов быть не может
